@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="heading text-capitalize text-black">
+        <h1>
+            <bold>PIZZA WORLD</bold>
+        </h1>
+    </div>
+
+    <div class="row" x-cloak x-data="initFunc">
+        <div class="row text-center order">
+            <h2>Shopping Cart</h2>
+
+            <div> Small &nbsp;&nbsp;&nbsp; <span> <button x-on:click="increaseSmall"> <img src="/add.png" width="30px"
+                            height="30px"></button>
+                </span> <span> <button x-on:click="decreaseSmall"> <img src="/minus.png" width="30px"
+                            height="30px"></button></span> <br>&nbsp;&nbsp;<span><b>&nbsp;&nbsp;R</b>
+                    <label x-text="small"></label></span> </div>
+            <div> Medium <span> <button x-on:click="increaseMedium"> <img src="/add.png" width="30px"
+                            height="30px"></button> </span> <span>
+                    <button x-on:click="decreaseMedium"> <img src="/minus.png" width="30px"
+                            height="30px"></button></span> <br> &nbsp;&nbsp;<span><b>R</b>
+                    <label x-text="medium"></label></span></div>
+            <div> Large &nbsp;&nbsp;&nbsp;<span> <button x-on:click="increaseLarge"> <img src="/add.png" width="30px"
+                            height="30px"></button>
+                </span> <span> <button x-on:click="decreaseLarge"> <img src="/minus.png" width="30px"
+                            height="30px"></button></span> <span> <br>&nbsp;&nbsp;<span><b>R</b>
+                        <label x-text="large"></label></span></div>
+            <div class="text-primary"><label>Total Cost: </label> <label x-text="total"> </label></div>
+            <hr>
+            
+            <div><button @click="checkOut">Checkout</button></div>
+            <div x-show="isShowing">
+               
+                <div> 
+                    <form x-on:submit.prevent="this.userPrice"> 
+                        <label>Payment Amount: R</label> <span></span><input type="number" x-model="userPrice">
+                        <div x-show="closePay"><button x-on:click="pay">Pay</button></div>
+                    </form>
+                </div>               
+               
+            </div>
+            <div x-show="showMessage" class="text-primary"><label x-text="finalMessage"></label></div>
+
+        </div>
+
+
+        <div class="row pizzas m-5 p-5">
+
+            {{#each pizza.Small}}
+            <div class="col-sm-4 m-4 table-bordered">
+                <div class="pizza small_pizza">
+                    <h2>{{size}} Pizza</h2>
+                    <img src="{{photo}}" alt="" height="80" width="80">
+                    <h3>R{{price}}</h3>
+                    <h3>{{type}}</h3>
+                    <h3>{{flavour}}</h3>
+                    <button class="smallLabel" x-on:click="increaseSmall">Buy</button>
+                </div>
+
+            </div>
+            {{/each}}
+
+
+            {{#each pizza.Medium}}
+            <div class="col-sm-4 m-4 table-bordered">
+                <div class="pizza medium_pizza">
+                    <h2>{{size}} Pizza</h2>
+                    <img src="{{photo}}" alt="" height="80" width="80">
+                    <h3>R{{price}}</h3>
+                    <h3>{{type}}</h3>
+                    <h3>{{flavour}}</h3>
+                    <button class="mediumLabel" x-on:click="increaseMedium">Buy</button>
+                </div>
+            </div>
+
+            {{/each}}
+
+
+            {{#each pizza.Large}}
+            <div class="col-sm-4 m-6 table-bordered">
+                <div class="pizza large_pizza">
+                    <h2>{{size}} Pizza</h2>
+                    <img src="{{photo}}" alt="" height="80" width="80">
+                    <h3>R{{price}}</h3>
+                    <h3>{{type}}</h3>
+                    <h3>{{flavour}}</h3>
+                    <button class="largeLabel" x-on:click="increaseLarge">Buy</button>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+
+    <div class="pizza contact_us">
+        <h2>Contact Details</h2>
+
+        <p>Mobile : 011 340 1231</p>
+        <p>Email : lukwagorsaved@gmail.com</p>
+
+    </div>
+</body>
+<script src="code.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+</html>

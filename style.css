@@ -1,0 +1,60 @@
+body{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center;
+}
+
+.heading{
+    background-color: #8AC926;
+    border-radius: 1em;
+    margin: 1em;
+}
+
+button {
+    transition-duration: 0.4s;
+    border-radius: 8px;
+  }
+  
+button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+.order {
+
+    border: 2px solid rgb(229, 228, 235);
+    border-radius: 2em;
+    padding: 4px;
+    margin: 10px;
+}
+
+.pizza {
+    border: 1px solid gainsboro;
+    padding: 20px;
+    margin: 2em;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+   
+    /*display: inline-block;
+    min-height:30em; */
+}
+
+.special {
+    background-color: black;
+    color: white;
+    margin:0.5;
+}
+.medium_pizza {
+    background-color: #FF595E;
+}
+
+.large_pizza {
+    background-color: #6A4C93;
+}
+
+.small_pizza{
+    background-color: #1982CA;
+}
+
+.contact_us {
+    background-color: #8AC926;
+}
